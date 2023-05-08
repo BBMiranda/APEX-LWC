@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-box">
+        <lightning-card title="Navegar para a Tab de Account">
+            <lightning-button label="List view default (pinado) de Account" onclick={navegarHomeAccount}>                
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <br>
+    <div class="slds-box">
+        <lightning-card title="Navegar para a List View 'Recently' Account">
+            <lightning-button label="List View recentes de Account" onclick={navegarRecently}>                
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <br>
+    <div class="slds-box">
+        <lightning-card title="Navegar para página de criação de Registro de Account">
+            <lightning-button label="Insert a new Account" onclick={insertNewAccount}>                
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <br>
+    <div class="slds-box">
+        <lightning-card title="Navegar para visualização de um determinado registro com Id conhecido">
+            <lightning-button label="Ver registro" onclick={navegarParaVerRegistro}>                
+            </lightning-button>
+            <br>
+            <lightning-button label="Editar registro" onclick={navegarParaEditarRegistro}>                
+            </lightning-button>
+        </lightning-card>
+    </div>
+</template>

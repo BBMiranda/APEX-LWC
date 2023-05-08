@@ -1,0 +1,8 @@
+<template>
+    <div class="slds-box">
+        <lightning-input value={nomeDoCurso} label="Entre com o nome do curso"></lightning-input>
+        <lightning-input value={valorDoCurso} label="Entre com o valor do curso" type="number" onchange={mudaValorDoCurso}></lightning-input>
+        <lightning-button variant="brand" label="Atualiza valor do curso" onclick={atualizaValor} class="slds-var-m-left_x-small"></lightning-button>
+        <span>Custo total do curso: {valorDoCurso}</span>  
+    </div>
+</template>

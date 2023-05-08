@@ -1,0 +1,28 @@
+.tabela{
+    width: 100%;
+    border-color: brown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-collapse: collapse;
+}
+
+.tabela td,
+.tabela th{
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.tabela th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: darkturquoise;
+    color: red;
+}
+
+.tabela tbody tr:hover{
+    background-color: rosybrown;
+}
+
+.linhas:nth-child(odd){
+    background-color: azure;
+}

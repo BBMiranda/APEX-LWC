@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="disconnectedCallback Example">
+        <p>Este é o componente pai</p>
+    
+    <lightning-button variant="brand" slot="actions" label="show/hide" onclick={handleShowHide} ></lightning-button>
+    <template if:true={show}>
+        <c-callback-filho></c-callback-filho>
+    </template>
+    </lightning-card>
+</template>

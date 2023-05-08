@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-var-p-around_medium lcd-bg">
+        <template if:true={displayCourseInfo}>
+            <div>
+                <slot name="courseSlot"></slot>
+            </div>
+            <div>
+                <slot name="duration"></slot>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-box main-div">
+        <template if:true={allAccounts}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={allAccounts} for:item="ac">
+                    <lightning-card class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={ac.Id} title={ac.Name}>
+                        <lightning-button variant="success" label="View details" slot="actions"></lightning-button>
+                        <p class="slds-var-p-horizontal_small">Tel: {ac.Phone}</p>
+                        <p class="slds-var-p-horizontal_small">Account Number: {ac.AccountNumber}</p>
+                        <p slot="footer">{ac.Website}</p>
+                    </lightning-card>
+                </template>
+            </div>
+        </template>
+        <template if:true={errorDetails}>
+            Erro: {errorDetails}
+        </template>
+    </div>
+</template>

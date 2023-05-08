@@ -1,0 +1,12 @@
+<template>
+  <!-- COM LAYOUT FULL -->
+  <div class="slds-box" style="background-color: lavender;">
+    <lightning-record-form object-api-name={caseObject} columns="2" layout-type="Full"></lightning-record-form>
+  </div>
+  <br>
+  <!-- COM LAYOUT PERSONALIZADO -->
+  <div class="slds-box" style="background-color: rgb(153, 169, 188);">
+    <lightning-record-form object-api-name={caseObject} fields={caseFields} columns="2" onsuccess={handleCaseCreated}></lightning-record-form>
+  </div>
+
+</template>

@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-var-m-top_small">
+        <lightning-card title={detalhesDoCurso.nomeDoCurso}>
+            <lightning-button label="Matricular-se" slot="actions"></lightning-button>
+            <div class="slds-var-m-left_medium">
+                <ul>
+                    <li>Duração: {detalhesDoCurso.duracaoDoCurso}</li>
+                    <li>Duração: {detalhesDoCurso.valor}</li>
+                </ul>
+            </div>
+            <div slot="footer" class="slds-text-heading_large sld-text-color_success">
+                {detalhesDoCurso.avaliacao}
+            </div>
+        </lightning-card>
+    </div>
+</template>

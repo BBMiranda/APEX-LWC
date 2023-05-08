@@ -1,0 +1,11 @@
+:host{
+    --slds-c-button-brand-spacing-inline-start: 12px;
+    --slds-c-button-brand-spacing-inline-end: 12px;
+    --slds-c-button-brand-color-background: rgba(6, 120, 250, 0.705);
+    --slds-c-button-success-spacing-inline-start: 12px;
+    --slds-c-button-success-spacing-inline-end: 12px;
+    --slds-c-button-destructive-spacing-inline-start: 12px;
+    --slds-c-button-destructive-spacing-inline-end: 12px;
+    --slds-c-button-radius-border: 15rem;
+    --slds-c-card-color-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+}

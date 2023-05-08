@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-box slds-var-m-top_small">
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning-input type="text" onchange={atualizaNome} placeholder="Entre com o primeiro nome"></lightning-input>
+        </div>
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning-input type="text" onchange={atualizaSobrenome} placeholder="Entre com o sobrenome"></lightning-input>
+        </div>
+        <div>
+            <p>{nome} {sobrenome}</p>
+        </div>
+    </div>
+    
+
+    <div class="slds-box slds-var-m-top_small">
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning-input type="text" onchange={updateName} placeholder="Entre com o primeiro nome"></lightning-input>
+        </div>
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning-input type="text" onchange={updateSurname} placeholder="Entre com o sobrenome"></lightning-input>
+        </div>
+        <div>
+            <p>{fullNameObj.name} {fullNameObj.surname}</p>
+        </div>
+    </div>
+</template>

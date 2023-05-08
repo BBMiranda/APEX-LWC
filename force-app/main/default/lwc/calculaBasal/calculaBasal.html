@@ -1,0 +1,31 @@
+<template>
+  <article class="slds-card">
+    <lightning-card title="Cálculo Basal" icon-name="standard:observation_component">
+      <div class="slds-var-m-around_x-small">
+        <div>
+          <lightning-radio-group name="radioGroup" label="Escolha o Gênero" value={genero} options={generos} type="radio" onchange={selecionaGenero}></lightning-radio-group>
+        </div>
+        <!-- <lightning-combobox name="genero" label="Selecione o gênero" placeholder="Escolha o gênero" value={genero} options={generos} onchange={selecionaGenero}>
+      </lightning-combobox> -->
+        <lightning-input type="text" name="nome" onchange={atribuiNome} label="Insira seu nome" value={nome}></lightning-input>
+        <lightning-input type="number" name="peso" onchange={atribuiPeso} label="Insira o peso da pessoa" value={peso} step=".01"></lightning-input>
+        <lightning-input type="number" name="altura" onchange={atribuiAltura} label="Insira a altura da pessoa" value={altura} step=".01"></lightning-input>
+        <lightning-input type="number" name="idade" onchange={atribuiIdade} label="Insira a idade da pessoa" value={idade}></lightning-input>
+        <div>
+          <lightning-combobox name="fatorAtividade" placeholder="Selecione uma opção" label="Selecione o comportamento" value={indice} options={fatores} onchange={selecionaFator}>
+          </lightning-combobox>
+        </div>
+        <div class="slds-var-m-vertical_large">
+          <lightning-button variant="success" label="Calcular" title="Primary action" onclick={calcular} class="slds-var-m-right_x-large"></lightning-button>
+          <template if:true={resultadoCalculo}>
+            <span style="color:blue;">O valor basal diário é de: "<span style="font-weight: bold;">{resultadoCalculo}</span>" Calorias.</span>
+          </template>
+          <div class="slds-var-m-top_x-small">
+            <lightning-button label="Salvar" variant="brand" onclick={salvarRegistro}></lightning-button>
+            <lightning-button variant="outline-brand" class="slds-var-m-left_large" label="List View Basal" onclick={navegarHomeBasal}></lightning-button>
+          </div>
+        </div>
+      </div>
+    </lightning-card>
+  </article>
+</template>

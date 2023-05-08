@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-box slds-var-m-top_small">
+        <div class="slds-grid slds-gutters_x-small slds-wrap">
+            <template for:each={todosOsCursos} for:item="c">
+            <c-escola-filho key={c.nomeDoCurso} class="slds-col slds-size_1-of-3" detalhes-do-curso={c}></c-escola-filho>
+            </template>
+        </div>
+    </div>
+</template>

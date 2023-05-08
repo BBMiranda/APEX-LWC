@@ -1,0 +1,39 @@
+<template>
+  <div class="slds-box slds-var-p-around_small" style="background-color: burlywood">
+    <lightning-input type="text" name="inicial" onchange={mudaInicial} label="Insira a inicial do assunto do caso" value={inicial}></lightning-input>
+    <template if:true={cases}>
+      <div class="slds-grid slds-wrap slds-gutters">
+        <template for:each={cases} for:item="eachCase">
+          <div class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={eachCase.Id}>
+            <lightning-card title={eachCase.Subject}>
+              <div slot="actions">
+
+
+                <template if:true={eachCase.IsClosed}>
+                  <span style="color: green; font-weight: bold;">Caso fechado</span>
+                </template>
+
+
+                <template if:false={eachCase.IsClosed}>
+                  <lightning-button variant="success" name={eachCase.Id} value={eachCase.Id} label="Fechar Caso" onclick={passCaseToClose}></lightning-button>
+                </template>
+              </div>
+              <p class="slds-var-p-horizontal_small">
+                <span style="color: brown;">Descrição: </span>{eachCase.Description}
+              </p>
+              <p class="slds-var-p-horizontal_small">
+                <span style="color: brown;">Status: </span>{eachCase.Status}
+              </p>
+              <p class="slds-var-p-horizontal_small">
+                <span style="color: brown;">Nº Caso: </span>{eachCase.CaseNumber}
+              </p>
+              <div slot="footer">
+                <span style="color: cornflowerblue;">Conta relacionada: </span>{eachCase.Account.Name}
+              </div>
+            </lightning-card>
+          </div>
+        </template>
+      </div>
+    </template>
+  </div>
+</template>

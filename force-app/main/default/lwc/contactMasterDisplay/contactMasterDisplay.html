@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-box main-div">
+        <lightning-combobox 
+            name="accountList" 
+            label="Selecione a conta para visualizar seus contatos"
+            placeholder="Escolha uma conta" value={selectedAccount}
+            options={accountOptions}
+            onchange={handleAccountChange}></lightning-combobox>
+        <template if:true={contatosDaConta.data}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={contatosDaConta.data} for:item="contact">
+                    <lightning-card class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={contact.Id} title={contact.Account.Name}>
+                        <lightning-button value={contact.Id} name={contact.Id} onclick={navigateToDetails} variant="success" label="View details" slot="actions"></lightning-button>
+                        <p class="slds-var-p-horizontal_small">Tel: {contact.Phone}</p>
+                        <p class="slds-var-p-horizontal_small">e-mail: {contact.Email}</p>
+                        <p class="slds-var-p-horizontal_small">Name: {contact.Name}</p>
+                        <p slot="footer">{contact.Email}</p>
+                    </lightning-card>
+                </template>
+            </div>
+        </template>
+        <template if:true={contatos.error}>
+            Erro: {contatos.error.body.message}
+        </template>
+    </div>
+    <br>
+    <div class="slds-box main-div">
+      <template if:true={contas.data}>
+          <div class="slds-grid slds-wrap slds-gutters">
+              <template for:each={contas.data} for:item="account">
+                  <lightning-card class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={account.Id} title={account.Name}>
+                      <lightning-button variant="success" label="View details" slot="actions"></lightning-button>
+                      <p class="slds-var-p-horizontal_small">Tel: {account.Phone}</p>
+                      <p class="slds-var-p-horizontal_small">e-mail: {account.website}</p>
+                      <p slot="footer">{account.AccountNumber}</p>
+                  </lightning-card>
+              </template>
+          </div>
+      </template>
+      <template if:true={contas.error}>
+          Erro: {contas.error.body.message}
+      </template>
+  </div>
+</template>

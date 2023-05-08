@@ -1,0 +1,13 @@
+<template>
+    <template iterator:it={cursos}>
+        <div key={it.value.id}>
+            <span if:true={it.first}>
+                <p>Primeiro Curso da Lista: Nome: {it.value.nome} - Duração: {it.value.duracao}</p>
+            </span>
+                <li>O curso de {it.value.nome} tem duração {it.value.duracao}!</li>
+            <span if:true={it.last}>
+                <p>Último Curso da Lista: Nome: {it.value.nome} - Duração: {it.value.duracao}</p>
+            </span>
+        </div>
+    </template>
+</template>
