@@ -22,3 +22,5 @@ System.debug('Contas excluídas: ');
 for(Account c:contas){
   System.debug(c.name+' - '+c.id);
 }
+
+ContactUtility.viewContacts();
