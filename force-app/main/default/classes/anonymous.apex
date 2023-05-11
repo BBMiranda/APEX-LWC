@@ -24,3 +24,5 @@ for(Account c:contas){
 }
 
 ContactUtility.viewContacts();
+
+PropertyUtility.newListedProperties();
