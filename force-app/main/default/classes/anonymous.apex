@@ -53,3 +53,15 @@ for(Account a:contasAposMerge){
 Database.rollback(sp);
 
 
+// Define as datas de início e fim do período desejado
+Date startDate = Date.newInstance(2023, 5, 1);
+Date endDate = Date.newInstance(2023, 5, 15);
+
+// Chama o método para recuperar as contas deletadas no período especificado
+List<Map<Id, Account>> recoveredAccounts = AccountRecovery.recoverDeletedAccounts(startDate, endDate);
+
+// Imprime os registros recuperados da lixeira
+System.debug('Recovered Trash Accounts: ' + recoveredAccounts[0]);
+// Imprime os registros permanentemente deletados
+System.debug('Permanently Deleted Accounts: ' + recoveredAccounts[1]);
+
