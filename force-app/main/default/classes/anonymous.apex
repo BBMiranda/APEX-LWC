@@ -26,3 +26,6 @@ for(Account c:contas){
 ContactUtility.viewContacts();
 
 PropertyUtility.newListedProperties();
+
+// Database.DeleteResult com Lista:
+List<Account> lista [SELECT Name FROM Account WHERE Name LIKE 'teste_'];
