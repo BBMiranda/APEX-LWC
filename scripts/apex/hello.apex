@@ -6,9 +6,3 @@
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
 // Material de Estudos APEX e LWC
-
-SomeClass.someFutureMethod();
-
-List<Account> accounts = [Select Id, Name from Account];
-    // process account records to do awesome stuff
-    System.debug(accounts);
