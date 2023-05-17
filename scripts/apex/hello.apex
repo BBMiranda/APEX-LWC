@@ -7,26 +7,8 @@
 
 // Material de Estudos APEX e LWC
 
-// Criar uma nova conta com a flag "Criar_oportunidade_automaticamente__c" definida como verdadeira
-Account novaConta = new Account();
-novaConta.Name = 'Nova Conta';
-//novaConta.Criar_oportunidade_automaticamente__c = true;
-insert novaConta;
+SomeClass.someFutureMethod();
 
-// Criar uma nova conta com a flag "Criar_oportunidade_automaticamente__c" definida como falsa
-Account outraConta = new Account();
-outraConta.Name = 'Outra Conta';
-//outraConta.Criar_oportunidade_automaticamente__c = false;
-insert outraConta;
-
-// Chamar o método criaOportunidade para criar oportunidades automaticamente
-Map<Id, Account> mapContasNew = new Map<Id, Account>();
-mapContasNew.put(novaConta.Id, novaConta);
-mapContasNew.put(outraConta.Id, outraConta);
-HelperTriggerCriaOportunidadeAutomatica.criaOportunidade(mapContasNew);
-
-// Chamar o método verificaOportunidades para verificar oportunidades existentes
-Map<Id, Account> mapContasOld = new Map<Id, Account>();
-mapContasOld.put(novaConta.Id, novaConta);
-mapContasOld.put(outraConta.Id, outraConta);
-HelperTriggerCriaOportunidadeAutomatica.verificaOportunidades(mapContasNew, mapContasOld);
+List<Account> accounts = [Select Id, Name from Account];
+    // process account records to do awesome stuff
+    System.debug(accounts);
