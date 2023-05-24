@@ -1,0 +1,21 @@
+<apex:page controller="OpportunitySummaryController">
+  <div style="text-align:center;">
+    <p style="font-weight:bold; font-size: 14pt;">Opportunity Summary</p>
+    <table border="1" style="width: 100%; border: 1px black solid; border-collapse: collapse;">
+      <tr>
+        <th></th>
+        <th>Open</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td># (%)</td>
+        <td>{!openCount}</td>
+        <td>{!wonCount}</td>
+        <td>{!lostCount}</td>
+        <td>{!totalCount}</td>
+      </tr>
+    </table>
+  </div>
+</apex:page>
