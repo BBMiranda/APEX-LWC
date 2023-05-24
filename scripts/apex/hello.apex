@@ -6,12 +6,3 @@
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
 // Material de Estudos APEX e LWC
-
-ClasseExternaJr externa = new ClasseExternaJr(50);
-ClasseExternaJr.classeInterna interna = new ClasseExternaJr.classeInterna(externa);
-
-interna.exibirNumeroAdvindoClasseExterna();
-
-ClasseExternaJr2 externa = new ClasseExternaJr2();
-ClasseExternaJr2.ClasseInterna interna = new ClasseExternaJr2.ClasseInterna(20);
-externa.exibirNumeroInternoDaClasseInterna(interna);
