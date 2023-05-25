@@ -6,8 +6,7 @@
   para essa conta.
 */
 
-// Definição da trigger "CriarOportunidadeAutomatica" para o objeto Account,
-// que será acionada após uma inserção ou atualização
+// Definição da trigger "CriarOportunidadeAutomatica" para o objeto Account, que será acionada após uma inserção ou atualização.
 trigger CriarOportunidadeAutomatica on Account (after insert, after update) {
   
   // Verifica se o acionador está sendo executado após uma inserção de registros

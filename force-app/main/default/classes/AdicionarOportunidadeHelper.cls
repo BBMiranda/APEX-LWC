@@ -1,3 +1,13 @@
+/*
+  Exercício: Criar um trigger que adiciona um registro relacionado. 
+  No caso de criação de uma conta ou atualização de alguma conta, 
+  CASO a conta não possua nenhuma oportunidade relacionada a ela, 
+  deverá inserir uma oportunidade em que o nome dessa oportunidade 
+  será 'Oportunidade automática da conta '+nomeDaConta. Caso a conta 
+  já possua oportunidades relacionadas à ela, não é necessário a criação 
+  de nenhuma oportunidade.
+*/
+
 public with sharing class AdicionarOportunidadeHelper {
   public static void criarOportunidades(List<Account> contasComOportunidades) {
       List<Opportunity> opportunitiesToInsert = new List<Opportunity>();
