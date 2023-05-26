@@ -9,6 +9,8 @@ Os Maps deverão ter como chave o Id e valor o registro do objeto. O método est
 receber como parâmetro as datas do período de recuperação desejado.
 */
 
+// Trabalharem com a detctaçção do erro que aconteceria, registros que não conseguimos recuperar e ontar uma nova lista com somente esses itens que deveria ser clonado. Por meio do Database.error!
+
 public with sharing class AccountRecovery {
     // Método para recuperar contas excluídas dentro de um intervalo de datas especificado
     public static List<Map<Id, Account>> recoverDeletedAccounts(Date startDate, Date endDate) {
@@ -18,8 +20,10 @@ public with sharing class AccountRecovery {
         // Realiza uma consulta para recuperar as contas deletadas no período especificado.
         // SystemModstamp é campo ele armazena a data e hora da última modificação feita no registro:
         List<Account> trashAccounts = [SELECT Id, Name, AccountNumber, Website, Phone FROM Account WHERE IsDeleted = true AND SystemModstamp >= :startDate AND SystemModstamp <= :endDate WITH SECURITY_ENFORCED ALL ROWS];
+        // SystemModstamp!!!!
         
         // Realiza a operação de undelete nas contas recuperadas e armazena o resultado.
+        // Rever esse ponto!!! Tratamente com Database.error!!!
         Database.UndeleteResult[] resultadoUndelete = Database.undelete(trashAccounts, false);
     
         // Consulta as contas que foram permanentemente deletadas no período especificado.
