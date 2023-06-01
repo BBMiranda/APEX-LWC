@@ -6,9 +6,10 @@
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
 // Material de Estudos APEX e LWC
+
 // Define as datas de início e fim do período desejado
-Date startDate = Date.newInstance(2023, 4, 26);
-Date endDate = Date.newInstance(2023, 5, 15);
+Date startDate = Date.newInstance(2023, 5, 29);
+Date endDate = Date.newInstance(2023, 5, 31);
 
 // Chama o método para recuperar as contas deletadas no período especificado
 List<Map<Id, Account>> recoveredAccounts = AccountRecovery.recoverDeletedAccounts(startDate, endDate);

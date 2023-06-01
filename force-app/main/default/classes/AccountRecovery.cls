@@ -1,6 +1,6 @@
 public with sharing class AccountRecovery {
-    // Método para recuperar contas excluídas dentro de um intervalo de datas especificado
-    public static List<Map<Id, Account>> recoverDeletedAccounts(Date startDate, Date endDate) {
+  // Método para recuperar contas excluídas dentro de um intervalo de datas especificado
+  public static List<Map<Id, Account>> recoverDeletedAccounts(Date startDate, Date endDate) {
       // Cria uma lista vazia de mapas que mapeiam Id para Account.
       List<Map<Id, Account>> recoveredAccounts = new List<Map<Id, Account>>();
       
@@ -21,9 +21,11 @@ public with sharing class AccountRecovery {
           Account co = new Account();
           co = a.clone();
           co.accountNumber = '12345678';
+          
           contasParaRecuperacao.add(co);
       }
-      
+      insert contasParaRecuperacao;
+
       // Cria um mapa que mapeia o Id da conta para a própria conta recuperada da lixeira.
       Map<Id, Account> recoveredTrashAccounts = new Map<Id, Account>();
       for (Account account : trashAccounts) {
@@ -45,13 +47,3 @@ public with sharing class AccountRecovery {
   }
 }
 
-/* 
-O código acima recupera as contas deletadas do Salesforce em um determinado período e as retorna 
-em uma lista de mapas. Essa lista contém dois mapas, um para as contas recuperadas da lixeira e 
-outro para as contas permanentemente deletadas. As contas recuperadas da lixeira são recuperadas 
-usando o método Database.undelete. Em seguida, a lista de contas permanentemente deletadas é 
-consultada para criar uma nova lista de contas com um novo valor para o campo AccountNumber.
-Finalmente, o código cria dois mapas, um mapeando o Id da conta para a própria conta recuperada 
-da lixeira e outro mapeando o Id da conta para a própria conta permanentemente deletada. 
-Esses mapas são adicionados à lista de mapas de contas recuperadas, que é retornada pelo método.
-*/
