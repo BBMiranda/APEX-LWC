@@ -1,11 +1,25 @@
 <template>
   <div class="container">
-    <lightning-card title="Formulário de Carro" icon-name="standard:observation_component">
-      <h1>Formulário de Carro</h1>
+    <lightning-card title="Formulário de Carro" icon-name="standard:travel_mode">
       <div class="slds-var-p-around_medium">
-        <lightning-combobox label="Selecione o Modelo" options={modelOptions} value={selectedModel} onchange={handleModelChange}></lightning-combobox>
-        <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange}></lightning-combobox>
+        <!-- Nome -->
+        <lightning-input label="Nome do Cliente" value={selectedName} onchange={handleNameChange} type="text" name="Cliente" placeholder="Insira o nome do Cliente"></lightning-input>
+        <!-- Modelo -->
+        <lightning-combobox label="Selecione o Modelo" options={modelOptions} value={selectedModel} onchange={handleModelChange} placeholder="Selecione uma opção"></lightning-combobox>
+        <!-- Carro -->
+        <lightning-combobox label="Selecione o Carro" options={carOptions} value={selectedCar} onchange={handleCarChange} placeholder="Selecione uma opção"></lightning-combobox>
+        <!-- Tipo Pintura -->
+        <lightning-combobox label="Tipo de Pintura" options={paintingOptions} value={selectedPainting} onchange={handlePaintingChange} placeholder="Selecione uma opção"></lightning-combobox>
+        <!-- Cor -->
+        <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange} placeholder="Selecione uma opção"></lightning-combobox>
+
       </div>
+      <!-- Botões Salvar e Limpar -->
+      <div class="slds-var-p-around_medium">
+        <lightning-button label="Salvar" variant="brand" onclick={handleSubmit}></lightning-button>
+        <lightning-button label="Limpar" variant="destructive" onclick={handleClear} class="slds-var-m-left_large"></lightning-button>
+      </div>
+      <!-- Resultado das Escolhas -->
       <div if:true={selectedColor}>
         <div class="slds-var-p-around_medium">
           <p>Modelo selecionado: {selectedModel}</p>

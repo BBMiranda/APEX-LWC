@@ -1,9 +1,3 @@
 :host{
   --slds-c-card-color-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
 }
-
-.customIcon{
-  width: 24px;
-  height: 30px;
-  margin: 10px;
-}
