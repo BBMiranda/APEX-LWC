@@ -7,14 +7,8 @@
 
 // Material de Estudos APEX e LWC
 
-// Define as datas de início e fim do período desejado
-Date startDate = Date.newInstance(2023, 5, 29);
-Date endDate = Date.newInstance(2023, 5, 31);
+//System.debug(AnimalLocator.getAnimalNameById(1));
 
-// Chama o método para recuperar as contas deletadas no período especificado
-List<Map<Id, Account>> recoveredAccounts = AccountRecovery.recoverDeletedAccounts(startDate, endDate);
-
-// Imprime os registros recuperados da lixeira
-System.debug('Recovered Trash Accounts: ' + recoveredAccounts[0]);
-// Imprime os registros permanentemente deletados
-System.debug('Permanently Deleted Accounts: ' + recoveredAccounts[1]); 
+String endpoint = 'modelos/esportivo';
+Map<String,Object> result = CarApi.calloutAPI(endpoint);
+System.debug(result);
