@@ -1,0 +1,17 @@
+<template>
+  <div class="container">
+    <lightning-card title="Formulário de Carro" icon-name="standard:observation_component">
+      <h1>Formulário de Carro</h1>
+      <div class="slds-var-p-around_medium">
+        <lightning-combobox label="Selecione o Modelo" options={modelOptions} value={selectedModel} onchange={handleModelChange}></lightning-combobox>
+        <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange}></lightning-combobox>
+      </div>
+      <div if:true={selectedColor}>
+        <div class="slds-var-p-around_medium">
+          <p>Modelo selecionado: {selectedModel}</p>
+          <p>Cor selecionada: {selectedColor}</p>
+        </div>
+      </div>
+    </lightning-card>
+  </div>
+</template>
