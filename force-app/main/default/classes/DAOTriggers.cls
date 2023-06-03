@@ -24,10 +24,4 @@ public with sharing class DAOTriggers {
           }
       }
   }
-<<<<<<< HEAD
 }
-=======
-}
-
-
->>>>>>> 05d60cb678400b757544310ae58a9f35a1462be1

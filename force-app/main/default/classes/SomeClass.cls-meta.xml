@@ -2,8 +2,4 @@
 <ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>56.0</apiVersion>
     <status>Active</status>
-<<<<<<< HEAD
 </ApexClass>
-=======
-</ApexClass>
->>>>>>> 05d60cb678400b757544310ae58a9f35a1462be1
