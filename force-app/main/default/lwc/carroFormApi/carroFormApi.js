@@ -100,6 +100,17 @@ export default class CarroAPIExample extends LightningElement {
 
   // Manipulador de evento para envio do formulário
   handleSubmit(event) {
+    if (!this.selectedName || !this.selectedModel || !this.selectedCar || !this.selectedPainting /* || !this.selectedColor */) {
+      // Exibe uma mensagem de erro se alguma opção não estiver selecionada
+      const event = new ShowToastEvent({
+        title: 'Erro',
+        message: 'Por favor, preencha todas as opções antes de salvar.',
+        variant: 'error',
+      });
+      this.dispatchEvent(event);
+      return;
+    }  
+
     const fields = {};
     fields[NAME_FIELD.fieldApiName] = this.selectedName;
     fields[MODEL_FIELD.fieldApiName] = this.selectedModel;
@@ -125,8 +136,8 @@ export default class CarroAPIExample extends LightningElement {
   // Exibição de toast de sucesso
   showToast(){
     const event = new ShowToastEvent({
-      title: 'Formulário Carro',
-      message: 'Salvo com Sucesso',
+      title: 'Sucesso',
+      message: 'O registro foi salvo com sucesso!',
       variant: 'success',
     });
 
