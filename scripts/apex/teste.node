@@ -1,0 +1,24 @@
+{
+  "modelos": {
+    "esportivo":{
+      "Ferrari":{
+        "cores":{
+          "solidas":["branco","preto"],
+          "metalicas":["cinza","prata","azul metalico","chumbo"]
+          }
+      },
+      "Bugatti":{
+        "cores":{
+          "solidas":["branco","preto"],
+          "metalicas":["cinza","prata","azul metalico","chumbo"]
+        }
+      },
+        "Lamborghini":{
+          "cores":{
+            "solidas":["branco","preto"],
+            "metalicas":["cinza","prata","azul metalico","chumbo"]
+          }
+        }
+      }
+    }
+}

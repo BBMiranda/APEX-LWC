@@ -1,0 +1,46 @@
+<apex:page controller="OpportunitySummaryController" lightningStylesheets="true">
+  <head>
+    <style>
+      th{
+        background-color: lightblue;
+        font-weight: bold;
+        text-align: center;
+        padding: 3px;
+      }
+      td{
+        padding: 3px;
+      }
+
+      .rowHead{
+        font-weight: bold;
+        background-color: lightsalmon;
+      }
+    </style>
+  </head>
+  <div style="text-align: center;">
+    <p style="font-weight: bold; font-size: 14pt;">Opportunity Summary</p>
+    <table border="1" style="width: 100%; border: 1px black solid; border-collapse: collapse">
+      <tr>
+        <th></th>
+        <th>Open</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td class="rowHead"># (%)</td>
+        <td>{!openCount} ({!openCountPercent}%)</td>
+        <td>{!wonCount} ({!wonCountPercent}%)</td>
+        <td><span style="color: red;">{!lostCount} ({!lostCountPercent}%)</span></td>
+        <td>{!totalCount} ({!totalCountPercent}%)</td>
+      </tr>
+      <tr>
+        <td class="rowHead">$$ (%)</td>
+        <td>{!openAmount} ({!openAmountPercent}%)</td>
+        <td>{!wonAmount} ({!wonAmountPercent}%)</td>
+        <td><span style="color: red;">{!lostAmount} ({!lostAmountPercent}%)</span></td>
+        <td>{!totalAmount} ({!totalAmountPercent}%)</td>
+      </tr>
+    </table>
+  </div>
+</apex:page>
