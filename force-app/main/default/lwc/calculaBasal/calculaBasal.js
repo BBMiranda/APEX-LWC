@@ -98,6 +98,17 @@ export default class CalculaBasal extends NavigationMixin(LightningElement){
     })
     this.dispatchEvent(event);
   }
+
+  handleClear() {
+    // Lógica para limpar os campos preenchidos
+    this.genero = null;
+    this.nome = null;
+    this.peso = null;
+    this.altura = null;
+    this.idade = null;
+    this.indice = null;
+}
+
   // Navegar 
   navegarHomeBasal(){
     this[NavigationMixin.Navigate]({
