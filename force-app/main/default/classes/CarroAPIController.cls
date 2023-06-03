@@ -1,24 +1,32 @@
 public with sharing class CarroAPIController {
-    // Método exposto como serviço remoto e cacheável para realizar a chamada à API:
-    @AuraEnabled(cacheable=true)
-    public static Map<String, Object> calloutAPI(String endpoint) {
-        // Criação dos objetos para fazer a chamada HTTP:
-        Http http = new Http();
-        HttpRequest request = new HttpRequest();
-        request.setEndpoint('https://cambuinfo.com.br/api_carros/' + endpoint);
-        request.setMethod('GET');
+  
+  // Método para realizar uma chamada à API externa
+  @AuraEnabled(cacheable=true)
+  public static Map<String, Object> calloutAPI(String endpoint) {
 
-        // Envio da requisição e obtenção da resposta:
-        HttpResponse response = http.send(request);
+    // Criação de uma instância da classe Http para realizar a chamada HTTP
+    Http http = new Http();
+    HttpRequest request = new HttpRequest();
+    
+    // Definição do endpoint da API
+    request.setEndpoint('https://cambuinfo.com.br/api_carros/' + endpoint);
+    
+    // Definição do método GET para a chamada HTTP
+    request.setMethod('GET');
 
-        
-        if (response.getStatusCode() == 200) {
-        // Se a requisição for bem-sucedida (código de status 200), retorna os dados da resposta.  
-            return (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-        
-        } else {
-        // Caso contrário, lança uma exceção para tratar o erro na chamada à API:    
-            throw new AuraHandledException('Erro na chamada à API');
-        }
+    // Envio da requisição HTTP e obtenção da resposta
+    HttpResponse response = http.send(request);
+
+    // Verificação do código de status da resposta
+    if (response.getStatusCode() == 200) {
+      
+      // Deserialização do corpo da resposta em um Map genérico
+      return (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+    
+    } else {
+      
+      // Lançamento de uma exceção caso ocorra um erro na chamada à API
+      throw new AuraHandledException('Erro na chamada à API');
     }
+  }
 }

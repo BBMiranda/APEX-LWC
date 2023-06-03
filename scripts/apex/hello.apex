@@ -10,6 +10,6 @@
 //System.debug(AnimalLocator.getAnimalNameById(1));
 
 //Consulta dos dados da API pela Classe CarApi:  
-String endpoint = 'modelos/esportivo/Ferrari/cores';
-Map<String,Object> result = CarroAPIController.calloutAPI(endpoint);
-System.debug(result);
+/* String endpoint = 'modelos/esportivo';
+Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
+System.debug(result); */
