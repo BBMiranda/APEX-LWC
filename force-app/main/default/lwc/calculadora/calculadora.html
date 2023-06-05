@@ -1,19 +1,19 @@
 <template>
-  <lightning-card  title="Calculadora" icon-name="custom:custom17">
-  <div class="slds-var-m-around_medium">
+  <lightning-card title="Calculadora" icon-name="custom:custom17">
+    <div class="slds-var-m-around_medium">
       <lightning-input type="number" name="primeiroNumero" label="Entre um número" onchange={priNumeroChange} placeholder="Entre com o seu primeiro número:" value={priNumero}></lightning-input>
-  </div>
-  <div class="slds-var-m-around_medium">
+    </div>
+    <div class="slds-var-m-around_medium">
       <lightning-input type="number" name="segundoNumero" label="Entre um número" onchange={segNumeroChange} placeholder="Entre com o seu segundo número:" value={segNumero}></lightning-input>
-  </div>
-  
-  <div class="slds-var-m-around_medium slds-var-m-top_small" >
+    </div>
+
+    <div class="slds-var-m-around_medium slds-var-m-top_small">
       <lightning-button variant="brand" label="Somar" title="Somar" onclick={somar} class="slds-var-m-left_x-small"></lightning-button>
       <lightning-button variant="brand" label="Subtrair" title="Subtrair" onclick={subtrair} class="slds-var-m-left_x-small"></lightning-button>
       <lightning-button variant="brand" label="Multiplicar" title="Multiplicar" onclick={multiplicar} class="slds-var-m-left_x-small"></lightning-button>
       <lightning-button variant="brand" label="Dividir" title="Dividir" onclick={dividir} class="slds-var-m-left_x-small"></lightning-button>
       <lightning-button variant="destructive" label="Limpar" title="Limpar" onclick={limpar} class="slds-var-m-left_x-small"></lightning-button>
-  </div>
-  <p class="slds-var-m-around_medium">{priNumero} -- {segNumero} = {total}</p>
-</lightning-card>
+    </div>
+    <p class="slds-var-m-around_medium">{priNumero} -- {segNumero} = {total}</p>
+  </lightning-card>
 </template>

@@ -13,3 +13,19 @@
 String endpoint = 'modelos/esportivo/Ferrari/cores/metalicas';
 Map<String,Object> result = CarroAPIController.calloutAPI(endpoint);
 System.debug(result);
+
+String endpoint = 'modelos/esportivo/Ferrari/cores/';
+Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
+
+List<Object> metalicas = (List<Object>) result.get('metalicas');
+List<Object> solidas = (List<Object>) result.get('solidas');
+
+// Percorrer e exibir os valores da lista "metalicas"
+for (Object cor : metalicas) {
+  System.debug((String) cor);
+}
+
+// Percorrer e exibir os valores da lista "solidas"
+for (Object cor : solidas) {
+  System.debug((String) cor);
+}

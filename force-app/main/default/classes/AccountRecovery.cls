@@ -46,4 +46,3 @@ public with sharing class AccountRecovery {
       return recoveredAccounts;
   }
 }
-
