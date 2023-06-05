@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { createRecord } from 'lightning/uiRecordApi';
+import { NavigationMixin } from 'lightning/navigation';
 import calloutAPI from '@salesforce/apex/CarroAPIController.calloutAPI';
 import CAR_OBJECT from '@salesforce/schema/Carro__c';
 import NAME_FIELD from '@salesforce/schema/Carro__c.Name';
@@ -9,8 +10,7 @@ import MODEL_FIELD from '@salesforce/schema/Carro__c.Modelo__c';
 import TYPE_FIELD from '@salesforce/schema/Carro__c.TipoPintura__c'
 import COLOR_FIELD from '@salesforce/schema/Carro__c.Cor__c';
 
-export default class CarroAPIExample extends LightningElement {
-  // Variáveis de acompanhamento (track) para reatividade
+export default class carroFormApi extends NavigationMixin(LightningElement) {
   @track selectedName = '';
   @track modelOptions = [];
   @track carOptions = [];
@@ -21,7 +21,6 @@ export default class CarroAPIExample extends LightningElement {
   @track selectedPainting = '';
   @track selectedColor = '';
   connectedCallback() {
-    // Chamada inicial à API para obter opções de modelo de carro
     calloutAPI({ endpoint: 'modelos' })
       .then(result => {
           this.modelOptions = this.getOptionsFromData(result);
@@ -30,21 +29,27 @@ export default class CarroAPIExample extends LightningElement {
           console.error(error);
       });
   }
-  // Método utilitário para converter dados em opções do combobox
   getOptionsFromData(data) {
       return Object.keys(data).map(key => {
           return { label: key, value: key };
       });
   }
-  // Manipulador de evento para alteração do modelo de carro selecionado
+  getOptionsFromDataList(data) {
+    const labelMapping = {
+      solidas: 'Sólidas',
+      metalicas: 'Metálicas'
+    };
+  
+    return Object.entries(data).map(([key, value]) => ({
+      label: labelMapping[key] || value,
+      value: key
+    }));
+  }
   handleModelChange(event) {
     this.selectedModel = event.target.value;
-    this.selectedCar = '';
-    this.selectedPainting = '';
-    this.selectedColor = '';
     
     if (this.selectedModel) {
-      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/${this.selectedPainting}`;
+      const endpoint = `modelos`;
       calloutAPI({ endpoint })
         .then(result => {
           this.carOptions = this.getOptionsFromData(result);
@@ -57,17 +62,14 @@ export default class CarroAPIExample extends LightningElement {
       this.carOptions = [];
     }
   }
-  // Manipulador de evento para alteração do carro selecionado
   handleCarChange(event) {
     this.selectedCar = event.target.value;
-    this.selectedPainting = '';
-    this.selectedColor = '';
     
     if (this.selectedModel && this.selectedCar) {
-      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores/${this.selectedPainting}`;
+      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores}`;
       calloutAPI({ endpoint })
         .then(result => {
-          this.paintingOptions = this.getOptionsFromData(result);
+          this.paintingOptions = this.getOptionsFromDataList(result);
           console.log(result);
         })
         .catch(error => {
@@ -77,16 +79,14 @@ export default class CarroAPIExample extends LightningElement {
       this.paintingOptions = [];
     }
   }
-  // Manipulador de evento para alteração do tipo de pintura selecionado
   handlePaintingChange(event) {
     this.selectedPainting = event.target.value;
-    this.selectedColor = '';
     
     if (this.selectedModel && this.selectedCar && this.selectedPainting) {
       const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores/${this.selectedPainting}`;
       calloutAPI({ endpoint })
         .then(result => {
-          this.colorOptions = this.getOptionsFromData(result);
+          this.colorOptions = this.getOptionsFromDataList(result);
           console.log(result);
         })
         .catch(error => {
@@ -96,18 +96,14 @@ export default class CarroAPIExample extends LightningElement {
       this.colorOptions = [];
     }
   }
-  // Manipulador de evento para alteração da cor selecionada
   handleColorChange(event) {
     this.selectedColor = event.target.value;
   }
-   // Manipulador de evento para alteração do nome do cliente
   handleNameChange(event) {
     this.selectedName = event.target.value;
   }
-  // Manipulador de evento para envio do formulário
-  handleSubmit(event) {
+  handleSubmit() {
     if (!this.selectedName || !this.selectedModel || !this.selectedCar || !this.selectedPainting || !this.selectedColor) {
-      // Exibe uma mensagem de erro se alguma opção não estiver selecionada
       const event = new ShowToastEvent({
         title: 'Erro',
         message: 'Por favor, preencha todas as opções antes de salvar.',
@@ -123,18 +119,15 @@ export default class CarroAPIExample extends LightningElement {
     fields[TYPE_FIELD.fieldApiName] = this.selectedPainting;
     fields[COLOR_FIELD.fieldApiName] = this.selectedColor;
     const recordInput = { apiName: CAR_OBJECT.objectApiName, fields };
-    // Criação de registro usando o serviço createRecord do Lightning Data Service
     createRecord(recordInput)
       .then(result => {
-          console.log('Registro salvo com sucesso!');
-          this.carName = '';
+          console.log(result);
       })
       .catch(error => {
           console.error(error);
       });
     this.showToast();
   }
-  // Exibição de toast de sucesso
   showToast(){
     const event = new ShowToastEvent({
       title: 'Sucesso',
@@ -143,12 +136,20 @@ export default class CarroAPIExample extends LightningElement {
     });
     this.dispatchEvent(event);
   }
-  // Manipulador de evento para limpar o formulário
-  handleClear(event) {        
+  handleClear() {        
     this.selectedName = '';
     this.selectedModel = '';
     this.selectedCar = '';
     this.selectedPainting = '';
     this.selectedColor = '';
+  }
+  navegarCarros(){
+    this[NavigationMixin.Navigate]({
+        type: 'standard__objectPage',
+        attributes:{
+            objectApiName: 'Carro__c',
+            actionName: 'home'
+        }
+    });
   }
 }
