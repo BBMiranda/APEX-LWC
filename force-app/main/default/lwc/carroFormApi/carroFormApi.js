@@ -49,7 +49,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
     this.selectedModel = event.target.value;
     
     if (this.selectedModel) {
-      const endpoint = `modelos`;
+      const endpoint = `modelos/${this.selectedModel}`;
       calloutAPI({ endpoint })
         .then(result => {
           this.carOptions = this.getOptionsFromData(result);
@@ -66,7 +66,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
     this.selectedCar = event.target.value;
     
     if (this.selectedModel && this.selectedCar) {
-      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores}`;
+      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores`;
       calloutAPI({ endpoint })
         .then(result => {
           this.paintingOptions = this.getOptionsFromDataList(result);
