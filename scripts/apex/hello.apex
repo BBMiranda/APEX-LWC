@@ -10,6 +10,7 @@
 //System.debug(AnimalLocator.getAnimalNameById(1));
 
 //Consulta dos dados da API pela Classe CarApi:  
+<<<<<<< HEAD
 String endpoint = 'modelos/esportivo/Ferrari/cores/metalicas';
 Map<String,Object> result = CarroAPIController.calloutAPI(endpoint);
 System.debug(result);
@@ -29,3 +30,8 @@ for (Object cor : metalicas) {
 for (Object cor : solidas) {
   System.debug((String) cor);
 }
+=======
+/* String endpoint = 'modelos/esportivo';
+Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
+System.debug(result); */
+>>>>>>> 35457bdfe6d3af0e6bbdb14844074cf66018028c
