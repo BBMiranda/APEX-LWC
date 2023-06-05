@@ -14,11 +14,7 @@
         <!-- Combobox para selecionar o tipo de pintura -->
         <lightning-combobox label="Tipo de Pintura" options={paintingOptions} value={selectedPainting} onchange={handlePaintingChange} placeholder="Selecione uma opção" required></lightning-combobox>
         <!-- Combobox para selecionar a cor -->
-<<<<<<< HEAD
-        <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange} placeholder="Selecione uma opção"></lightning-combobox>
-=======
         <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange} placeholder="Selecione uma opção" required=""></lightning-combobox>
->>>>>>> 35457bdfe6d3af0e6bbdb14844074cf66018028c
       </div>
       <!-- Espaçamento interno médio -->
       <div class="slds-var-p-around_medium">
@@ -27,19 +23,6 @@
         <!-- Botão "Limpar" -->
         <lightning-button label="Limpar" variant="destructive" onclick={handleClear} class="slds-var-m-left_large"></lightning-button>
       </div>
-<<<<<<< HEAD
-=======
-      <!-- Se a cor estiver selecionada, mostrar informações adicionais -->
-      <div if:true={selectedColor}>
-        <!-- Espaçamento interno médio -->
-        <div class="slds-var-p-around_medium">
-          <!-- Texto exibindo o modelo selecionado -->
-          <p>Modelo selecionado: {selectedModel}</p>
-          <!-- Texto exibindo a cor selecionada -->
-          <p>Cor selecionada: {selectedColor}</p>
-        </div>
-      </div>
->>>>>>> 35457bdfe6d3af0e6bbdb14844074cf66018028c
     </lightning-card>
   </div>
 </template>
