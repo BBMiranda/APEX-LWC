@@ -1,3 +1,4 @@
 :host{
-  --slds-c-card-color-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+  --slds-c-card-color-background: #D7EAFC;
+  --slds-c-card-color-border: white;
 }

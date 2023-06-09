@@ -81,13 +81,19 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
   }
   handlePaintingChange(event) {
     this.selectedPainting = event.target.value;
-    
+  
     if (this.selectedModel && this.selectedCar && this.selectedPainting) {
-      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores/${this.selectedPainting}`;
+      const endpoint = `modelos/${this.selectedModel}/${this.selectedCar}/cores`;
       calloutAPI({ endpoint })
         .then(result => {
-          this.colorOptions = this.getOptionsFromDataList(result);
-          console.log(result);
+          if (typeof result === 'object' && result[this.selectedPainting]) {
+            this.colorOptions = result[this.selectedPainting].map(color => ({
+            label: color,
+            value: color
+            }));
+          } else {
+            this.colorOptions = [];
+          }
         })
         .catch(error => {
           console.error(error);

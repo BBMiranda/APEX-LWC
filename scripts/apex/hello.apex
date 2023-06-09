@@ -29,8 +29,14 @@ for (Object cor : metalicas) {
 for (Object cor : solidas) {
   System.debug((String) cor);
 }
-=======
-/* String endpoint = 'modelos/esportivo';
-Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
-System.debug(result); */
 
+String endpoint = 'modelos/esportivo';
+Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
+System.debug(result);
+
+String endpoint = 'modelos/esportivo';
+Object result = CarroAPIController.calloutAPI(endpoint);
+System.debug(result);
+
+List<Account> accounts = Database.query('SELECT Id FROM Account WHERE Name = :name');
+System.debug(accounts);
