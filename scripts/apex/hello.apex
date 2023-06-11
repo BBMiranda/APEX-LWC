@@ -10,6 +10,22 @@
 //System.debug(AnimalLocator.getAnimalNameById(1));
 
 //Consulta dos dados da API pela Classe CarApi:  
-/* String endpoint = 'modelos/esportivo';
+String endpoint = 'modelos/esportivo';
 Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
-System.debug(result); */
+System.debug(result.solidas.branco); 
+
+String endpoint = 'modelos/esportivo/Ferrari/cores/';
+Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
+
+List<Object> metalicas = (List<Object>) result.get('metalicas');
+List<Object> solidas = (List<Object>) result.get('solidas');
+
+// Percorrer e exibir os valores da lista "metalicas"
+for (Object cor : metalicas) {
+  System.debug((String) cor);
+}
+
+// Percorrer e exibir os valores da lista "solidas"
+for (Object cor : solidas) {
+  System.debug((String) cor);
+}
