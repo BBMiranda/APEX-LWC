@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <!-- Componente container -->
   <div class="container">
     <!-- Lightning Card com título e ícone -->
@@ -25,4 +26,35 @@
       </div>
     </lightning-card>
   </div>
+=======
+  <article class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+          <h1 class="slds-truncate" title="formulario">
+            <!-- Colocar o Link da sua org que remete ao objeto carros-->
+            <a href="https://creative-hawk-v8kad5-dev-ed.trailblaze.lightning.force.com/lightning/o/Carro__c/list?filterName=00B8b00000CMMveEAH" title="Carros">
+              <span class="slds-text-heading_medium">Formulário de Carro</span>
+            </a>
+          </h1>
+        </div>
+      </header>
+    </div>
+    <div class="slds-card__body slds-einstein-header slds-card__body_inner">
+      <div class="slds-var-p-around_medium">
+        <lightning-input label="Nome do Cliente" value={selectedName} onchange={handleNameChange} type="text" name="Cliente" placeholder="Insira o nome do Cliente" required></lightning-input>
+        <lightning-combobox label="Selecione o Modelo" options={modelOptions} value={selectedModel} onchange={handleModelChange} placeholder="Selecione uma opção" required></lightning-combobox>
+        <lightning-combobox label="Selecione o Carro" options={carOptions} value={selectedCar} onchange={handleCarChange} placeholder="Selecione uma opção" required></lightning-combobox>
+        <lightning-combobox label="Tipo de Pintura" options={paintingOptions} value={selectedPainting} onchange={handlePaintingChange} placeholder="Selecione uma opção" required></lightning-combobox>
+        <lightning-combobox label="Selecione a Cor" options={colorOptions} value={selectedColor} onchange={handleColorChange} placeholder="Selecione uma opção"></lightning-combobox>
+      </div>
+
+      <div class="slds-var-p-around_medium">
+        <lightning-button label="Salvar" variant="brand" onclick={handleSubmit}></lightning-button>
+        <lightning-button label="Limpar" variant="destructive" onclick={handleClear} class="slds-var-m-left_large"></lightning-button>
+        <lightning-button label="Lista de Carros" variant="outline-brand" onclick={navegarCarros} class="slds-var-m-left_large"></lightning-button>
+      </div>
+    </div>
+  </article>
+>>>>>>> f845c1e1a04d2c176366ded9bd4e553418129617
 </template>
