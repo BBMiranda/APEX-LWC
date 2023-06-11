@@ -10,7 +10,6 @@
 //System.debug(AnimalLocator.getAnimalNameById(1));
 
 //Consulta dos dados da API pela Classe CarApi:  
-<<<<<<< HEAD
 String endpoint = 'modelos/esportivo';
 Map<String, Object> result = CarroAPIController.calloutAPI(endpoint);
 System.debug(result.solidas.branco); 
@@ -37,9 +36,6 @@ for (Object cor : metalicas) {
 // Percorrer e exibir os valores da lista "solidas"
 for (Object cor : solidas) {
   System.debug((String) cor);
-<<<<<<< HEAD
-}
-=======
 }
 
 String endpoint = 'modelos/esportivo';
@@ -52,4 +48,3 @@ System.debug(result);
 
 List<Account> accounts = Database.query('SELECT Id FROM Account WHERE Name = :name');
 System.debug(accounts);
->>>>>>> f845c1e1a04d2c176366ded9bd4e553418129617
