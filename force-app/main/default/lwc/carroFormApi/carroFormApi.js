@@ -20,6 +20,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
   @track selectedCar = '';
   @track selectedPainting = '';
   @track selectedColor = '';
+  
   connectedCallback() {
     calloutAPI({ endpoint: 'modelos' })
       .then(result => {
@@ -62,6 +63,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
       this.carOptions = [];
     }
   }
+  
   handleCarChange(event) {
     this.selectedCar = event.target.value;
     
@@ -79,6 +81,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
       this.paintingOptions = [];
     }
   }
+  
   handlePaintingChange(event) {
     this.selectedPainting = event.target.value;
   
@@ -88,8 +91,8 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
         .then(result => {
           if (typeof result === 'object' && result[this.selectedPainting]) {
             this.colorOptions = result[this.selectedPainting].map(color => ({
-            label: color,
-            value: color
+              label: color,
+              value: color
             }));
           } else {
             this.colorOptions = [];
@@ -105,9 +108,11 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
   handleColorChange(event) {
     this.selectedColor = event.target.value;
   }
+  
   handleNameChange(event) {
     this.selectedName = event.target.value;
   }
+  
   handleSubmit() {
     if (!this.selectedName || !this.selectedModel || !this.selectedCar || !this.selectedPainting || !this.selectedColor) {
       const event = new ShowToastEvent({
@@ -134,6 +139,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
       });
     this.showToast();
   }
+  
   showToast(){
     const event = new ShowToastEvent({
       title: 'Sucesso',
@@ -142,6 +148,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
     });
     this.dispatchEvent(event);
   }
+  
   handleClear() {        
     this.selectedName = '';
     this.selectedModel = '';
@@ -149,6 +156,7 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
     this.selectedPainting = '';
     this.selectedColor = '';
   }
+  
   navegarCarros(){
     this[NavigationMixin.Navigate]({
         type: 'standard__objectPage',
