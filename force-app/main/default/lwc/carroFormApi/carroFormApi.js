@@ -21,6 +21,8 @@ export default class carroFormApi extends NavigationMixin(LightningElement) {
   @track selectedPainting = '';
   @track selectedColor = '';
   
+  apiData = null;
+
   connectedCallback() {
     calloutAPI({ endpoint: 'modelos' })
       .then(result => {

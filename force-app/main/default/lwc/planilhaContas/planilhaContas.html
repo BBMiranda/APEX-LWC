@@ -1,0 +1,55 @@
+<template>
+  <lightning-card title="Planilha de Contas" icon-name="custom:custom21">
+    <div class="slds-box slds-theme_default">
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Tipo">Tipo</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Média dos Valores">Média dos Valores</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Data de Vencimento">Data de Vencimento</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Data de Pagamento">Data de Pagamento</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Pago">Pago</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Status do Pagamento">Status do Pagamento</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aqui é onde as linhas da tabela serão adicionadas dinamicamente -->
+        </tbody>
+      </table>
+      <div class="slds-m-top_large">
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-size_1-of-3">
+            <div class="slds-box slds-theme_success">
+              <strong>Valor Total:</strong>
+              <!-- O valor total será adicionado aqui -->
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-3">
+            <div class="slds-box slds-theme_warning">
+              <strong>Valor Pago:</strong>
+              <!-- O valor pago será adicionado aqui -->
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-3">
+            <div class="slds-box slds-theme_error">
+              <strong>Valor Restante:</strong>
+              <!-- O valor restante será adicionado aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
